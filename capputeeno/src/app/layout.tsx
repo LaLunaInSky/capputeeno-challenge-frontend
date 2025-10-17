@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Header } from "@/components/header/header";
 import { Saira } from "next/font/google";
+import { Main } from "@/components/main/Main";
 
 const saira = Saira(
   {
@@ -26,8 +27,9 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={saira.className}>
         <Header />
-        
-        {children}
+        <Main>  
+          {children}
+        </Main>
       </body>
     </html>
   );
