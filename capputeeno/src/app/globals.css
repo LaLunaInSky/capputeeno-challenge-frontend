@@ -3,7 +3,10 @@
   --logo-color: #5D5D6D;
   --bg-secondary: #F3F5F6;
   --text-dark: #737380;
+  --inputs-and-icons: #41414D;
   --delete-color: #DE3838;
+  --shapes-light: #F0F0F5;
+  --orange-low: #FFA585;
 }
 
 * {

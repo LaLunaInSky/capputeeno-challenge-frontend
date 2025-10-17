@@ -1,9 +1,16 @@
-import styles from "./page.module.css";
+"use client"
+
+import { FilterBar } from "@/components/filter-bar/filter-bar";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export default function Home() {
+  const client = new QueryClient();
+
   return (
-    <div>
-      
-    </div>
+    <QueryClientProvider client={client}>
+      <div>
+        <FilterBar />
+      </div>
+    </QueryClientProvider>
   );
 }
