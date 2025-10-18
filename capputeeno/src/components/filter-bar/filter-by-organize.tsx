@@ -71,6 +71,8 @@ const ContainerOrganizesFilters = styled.ul`
     align-items: center;
     gap: 4px;
 
+    z-index: 5;
+
     list-style: none;
 `
 

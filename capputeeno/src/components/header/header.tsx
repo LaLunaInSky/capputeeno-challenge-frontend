@@ -2,8 +2,9 @@
 
 import { styled } from "styled-components";
 import { Saira_Stencil_One } from "next/font/google";
-import { PrimaryInputWithSearchIcon } from "./primary-input";
+import { PrimaryInputWithSearchIcon } from "./search-input";
 import { CartControl } from "./cart-control";
+import { useFilter } from "@/hooks/useFilter";
 
 const sairaStencilOne = Saira_Stencil_One(
   {
@@ -11,10 +12,6 @@ const sairaStencilOne = Saira_Stencil_One(
     subsets: ['latin']
   }
 )
-
-interface HeaderProps {
-
-}
 
 const TagHeader = styled.header`
     position: fixed;
@@ -61,12 +58,13 @@ const Logo = styled.a`
     letter-spacing: 0%;
 `
 
-export function Header(
-    props: HeaderProps
-) {
+export function Header() {
+    const {
+        search,
+        setSearch
+    } = useFilter();
 
     return (
-
         <TagHeader>
             <ContainerHeader>    
                 <Logo
@@ -74,14 +72,14 @@ export function Header(
                 >
                     capputeeno
                 </Logo>
-
                 <div>
                     <PrimaryInputWithSearchIcon
+                        value={search}
+                        hangleChange={setSearch}
                         placeholder="
                             Procurando por algo específico?
                         "
                     />
-
                     <CartControl/>
                 </div>
             </ContainerHeader>
