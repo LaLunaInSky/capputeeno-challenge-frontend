@@ -33,8 +33,10 @@ export const getCategoryByType = (
 
 export const mountQuerry = (
     type: FilterTypes,
-    organize: FilterOrganizes
+    organize: FilterOrganizes,
+    page: number
 ) => {
+
     const organizeFilters = getFilterByOrganize(organize);
 
     if (
@@ -63,7 +65,7 @@ export const mountQuerry = (
                             category: "${getCategoryByType(type)}"
                         },
                         sortField: "${organizeFilters?.fields}",
-                        sortOrder: "${organizeFilters?.order}"
+                        sortOrder: "${organizeFilters?.order}",
                     ) {
                         name
                         description

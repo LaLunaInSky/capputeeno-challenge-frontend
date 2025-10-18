@@ -5,14 +5,16 @@ import { FilterTypes } from "@/types/filters/filter-types";
 import { createContext, ReactNode, useState } from "react";
 
 export const FilterContext = createContext({
-    search  : ''                  ,
-    organize: FilterOrganizes.NONE,
-    page    : 0                   ,
-    type    : FilterTypes.ALL     ,
-    setSearch  : (value: string         ) => {},
-    setOrganize: (value: FilterOrganizes) => {},
-    setPage    : (value: number         ) => {},
-    setType    : (value: FilterTypes    ) => {}
+    search        : ''                  ,
+    organize     : FilterOrganizes.NONE,
+    page         : 0                   ,
+    type         : FilterTypes.ALL     ,
+    numberOfPages: 5, 
+    setSearch       : (value: string         ) => {},
+    setOrganize     : (value: FilterOrganizes) => {},
+    setPage         : (value: number         ) => {},
+    setType         : (value: FilterTypes    ) => {},
+    setNumberOfPages: (value: number         ) => {},
 })
 
 interface ProviderProps {
@@ -50,12 +52,20 @@ export function FilterContextProvider({
         FilterTypes.ALL
     );
 
+    const [
+        numberOfPages,
+        setNumberOfPages
+    ] = useState(
+        5
+    );
+
     return (
         <FilterContext.Provider
             value={{
-                search, organize, page, type,
+                search, organize, page, type, numberOfPages,
                 setSearch, setOrganize,
-                setPage, setType
+                setPage, setType,
+                setNumberOfPages
             }}
         >
             {children}

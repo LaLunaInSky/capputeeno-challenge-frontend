@@ -4,6 +4,8 @@ import axios, { AxiosPromise } from "axios";
 import { useFilter } from "./useFilter";
 import { mountQuerry } from "@/utils/graphql-filters";
 import { useDeferredValue } from "react";
+import { SetTotalPages } from "@/utils/set-total-pages";
+import { SetPagesList } from "@/utils/set-pages-list";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
 
@@ -20,18 +22,21 @@ export function useProducts() {
     const {
         type,
         organize,
-        search
+        search,
+        page,
+        numberOfPages,
+        setPage
     } = useFilter();
 
     const searchDeferred = useDeferredValue(search).toLowerCase();
 
-    const query = mountQuerry(type, organize);
+    const query = mountQuerry(type, organize, page);
 
     const {
         data
     } = useQuery({
         queryFn: () => fetcher(query),
-        queryKey: ['products', type, organize, searchDeferred]
+        queryKey: ['products', type, organize, searchDeferred, page]
     })
 
     const products = data?.data?.data?.allProducts;
@@ -40,13 +45,37 @@ export function useProducts() {
         product => product.name.toLowerCase().includes(searchDeferred)
     );
 
+    if (
+        page > numberOfPages
+    ) {
+        setPage(
+            numberOfPages - 1
+        )
+    }
+
     if (searchDeferred == '') {
+        SetTotalPages(
+            products
+        );
+
+        const productsPerPages  = SetPagesList(
+            products
+        );
+        
         return {
-            data: products
+            data: productsPerPages[page]
         };
     } else {
+        SetTotalPages(
+            filteredProducts
+        );
+
+        const productsPerPages  = SetPagesList(
+            filteredProducts
+        );
+
         return {
-            data: filteredProducts
+            data: productsPerPages[page]
         };
     }
 }
