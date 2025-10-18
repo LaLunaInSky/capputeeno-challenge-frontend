@@ -1,9 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Header } from "@/components/header/header";
-import { Saira } from "next/font/google";
 import { Main } from "@/components/main/Main";
 import { FilterContextProvider } from "@/contexts/filter-context";
+import { Saira } from "next/font/google";
 
 const saira = Saira(
   {

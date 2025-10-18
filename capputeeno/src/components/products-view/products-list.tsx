@@ -1,27 +1,23 @@
 import { useProducts } from "@/hooks/useProducts"
 import styled from "styled-components";
-import { ViewProduct } from "./view-product";
-
-interface ProductsListProps {
-
-}
+import { ProductCard } from "./product-card";
 
 const ContainerProducts = styled.div`
     width: 100%;
     
-    margin-top: 46px;
+    margin: 46px 0px;
 
     display: flex;
-    justify-content: start;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: start;
+
+    font-family: inherit;
 
     gap: 32px;
 `
 
-export function ProductsList(
-    props : ProductsListProps
-) {
+export function ProductsList() {
 
     const {
         data
@@ -29,7 +25,14 @@ export function ProductsList(
 
     return (
         <ContainerProducts>
-            <ViewProduct />
+            { data?.map(product => 
+                <ProductCard 
+                    key={product.id}
+                    image_url={product.image_url}
+                    name={product.name}
+                    price_in_cents={product.price_in_cents}
+                />
+            )}
         </ContainerProducts>
     )
 }
