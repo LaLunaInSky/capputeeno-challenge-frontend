@@ -33,7 +33,7 @@ export function CartControl() {
         value
     } = useLocalStorage(
         'cart-items',
-        [1, 1]
+        [""]
     )
     
     return (

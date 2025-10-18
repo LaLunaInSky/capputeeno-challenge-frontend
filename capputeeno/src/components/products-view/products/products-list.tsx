@@ -5,8 +5,6 @@ import { ProductCard } from "./product-card";
 const ContainerProducts = styled.div`
     width: 100%;
     
-    margin: 46px 0px;
-
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -25,7 +23,7 @@ export function ProductsList() {
 
     return (
         <ContainerProducts>
-            { data?.map(product => 
+            { data?.map(product =>
                 <ProductCard 
                     key={product.id}
                     image_url={product.image_url}

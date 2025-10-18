@@ -1,12 +1,8 @@
 "use client"
 
 import styled from "styled-components";
-import { FilterByType } from "./filter-by-type";
-import { FilterByOrganize } from "./filter-by-organize";
-
-interface FilterBarProps {
-
-}
+import { FilterByType } from "./filters-by/filter-by-type";
+import { FilterByOrganize } from "./filters-by/filter-by-organize";
 
 const ContainerFilter = styled.div`
     width: 100%;
@@ -16,9 +12,7 @@ const ContainerFilter = styled.div`
     align-items: start;
 `
 
-export function FilterBar(
-    props: FilterBarProps
-) {
+export function FilterBar() {
 
     return (
         <ContainerFilter>

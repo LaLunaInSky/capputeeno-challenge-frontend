@@ -1,12 +1,8 @@
 import styled from "styled-components"
-import { ArrowDownIcon } from "./arrow-down-icon"
+import { ArrowDownIcon } from "./icons/arrow-down-icon"
 import { useState } from "react"
 import { useFilter } from "@/hooks/useFilter"
 import { FilterOrganizes } from "@/types/filters/filter-organizes"
-
-interface FilterByOrganizeProps {
-
-}
 
 const TagFilter = styled.div`
     position: relative;
@@ -96,9 +92,7 @@ const OrganizeFilterItem = styled.li`
     }
 `
 
-export function FilterByOrganize(
-    props : FilterByOrganizeProps
-) {
+export function FilterByOrganize() {
     const [
         isOpen,
         setIsOpen
