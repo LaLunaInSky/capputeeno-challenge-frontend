@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { ReactNode } from "react"
 import { ContainerPageBar } from "./page-container/page-container"
-import { useProducts } from "@/hooks/useProducts"
+import { useProducts } from "@/hooks/main-page/useProducts"
 import { NothingFound } from "./nothing-found"
 
 interface PageBarProps {

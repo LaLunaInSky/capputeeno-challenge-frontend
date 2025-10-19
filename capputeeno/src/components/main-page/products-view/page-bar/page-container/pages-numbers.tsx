@@ -1,4 +1,4 @@
-import { useFilter } from "@/hooks/useFilter"
+import { useFilter } from "@/hooks/main-page/useFilter"
 import styled from "styled-components"
 
 interface PageNumberProps {

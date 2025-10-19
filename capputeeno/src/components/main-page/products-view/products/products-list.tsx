@@ -1,4 +1,4 @@
-import { useProducts } from "@/hooks/useProducts"
+import { useProducts } from "@/hooks/main-page/useProducts"
 import styled from "styled-components";
 import { ProductCard } from "./product-card";
 
@@ -29,6 +29,7 @@ export function ProductsList() {
                     image_url={product.image_url}
                     name={product.name}
                     price_in_cents={product.price_in_cents}
+                    id={product.id}
                 />
             )}
         </ContainerProducts>

@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Header } from "@/components/header/header";
-import { Main } from "@/components/main/Main";
+import { Header } from "@/components/all-page/header/header";
+import { Main } from "@/components/all-page/main/Main";
 import { FilterContextProvider } from "@/contexts/filter-context";
 import { Saira } from "next/font/google";
 

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { ArrowDownIcon } from "./icons/arrow-down-icon"
 import { useState } from "react"
-import { useFilter } from "@/hooks/useFilter"
+import { useFilter } from "@/hooks/main-page/useFilter"
 import { FilterOrganizes } from "@/types/filters/filter-organizes"
 
 const TagFilter = styled.div`

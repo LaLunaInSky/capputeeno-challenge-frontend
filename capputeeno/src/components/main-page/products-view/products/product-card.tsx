@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { Saira } from "next/font/google";
 import { formatPrice } from "@/utils/format-price";
+import { useRouter } from "next/router";
 
 const saira = Saira(
   {
@@ -14,7 +15,8 @@ const saira = Saira(
 interface ProductCardProps {
     image_url: string,
     name: string,
-    price_in_cents: number
+    price_in_cents: number,
+    id: string
 }
 
 const TagProduct = styled.button`

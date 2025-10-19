@@ -1,11 +1,11 @@
-import { ProductsFetchResponse } from "@/types/products/products-response";
+import { ProductsFetchResponse } from "@/types/products/main-page/products-response";
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 import { useFilter } from "./useFilter";
-import { mountQuerry } from "@/utils/graphql-filters";
+import { mountQuerry } from "@/utils/main-page/graphql-filters";
 import { useDeferredValue } from "react";
-import { SetTotalPages } from "@/utils/set-total-pages";
-import { SetPagesList } from "@/utils/set-pages-list";
+import { SetTotalPages } from "@/utils/main-page/set-total-pages";
+import { SetPagesList } from "@/utils/main-page/set-pages-list";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
 
@@ -30,7 +30,7 @@ export function useProducts() {
 
     const searchDeferred = useDeferredValue(search).toLowerCase();
 
-    const query = mountQuerry(type, organize, page);
+    const query = mountQuerry(type, organize);
 
     const {
         data

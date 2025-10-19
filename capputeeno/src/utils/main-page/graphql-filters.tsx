@@ -33,8 +33,7 @@ export const getCategoryByType = (
 
 export const mountQuerry = (
     type: FilterTypes,
-    organize: FilterOrganizes,
-    page: number
+    organize: FilterOrganizes
 ) => {
 
     const organizeFilters = getFilterByOrganize(organize);
@@ -48,13 +47,9 @@ export const mountQuerry = (
                         sortOrder: "${organizeFilters?.order}"
                     ) {
                         name
-                        description
                         image_url
                         id
-                        category
                         price_in_cents
-                        sales
-                        created_at
                     }
                 }
             `
@@ -68,13 +63,9 @@ export const mountQuerry = (
                         sortOrder: "${organizeFilters?.order}",
                     ) {
                         name
-                        description
                         image_url
                         id
-                        category
                         price_in_cents
-                        sales
-                        created_at
                     }
                 }
             `

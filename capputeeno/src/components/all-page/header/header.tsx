@@ -4,7 +4,8 @@ import { styled } from "styled-components";
 import { Saira_Stencil_One } from "next/font/google";
 import { SearchBarInput } from "./search/search-input";
 import { CartControl } from "./cart/cart-control";
-import { useFilter } from "@/hooks/useFilter";
+import { useFilter } from "@/hooks/main-page/useFilter";
+import { useRouter } from "next/navigation";
 
 const sairaStencilOne = Saira_Stencil_One(
   {
@@ -69,6 +70,8 @@ const Logo = styled.a`
     line-height: 150%;
     letter-spacing: 0%;
 
+    cursor: pointer;
+
     @media (max-width: 500px) {
         font-size: 28px;
         margin-left: 4px;
@@ -81,11 +84,17 @@ export function Header() {
         setSearch
     } = useFilter();
 
+    const router = useRouter();
+
     return (
         <TagHeader>
             <ContainerHeader>    
                 <Logo
                     className={sairaStencilOne.className}
+                    onClick={() => {
+                        router.refresh();
+                        router.push("/");
+                    }}
                 >
                     capputeeno
                 </Logo>

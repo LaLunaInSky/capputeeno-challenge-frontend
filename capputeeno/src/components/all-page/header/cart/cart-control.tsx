@@ -1,6 +1,9 @@
+"use client"
+
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { CartIcon } from "./cart-icon";
+import { CartIcon } from "./icons/cart-icon";
 import styled from "styled-components";
+import { useRouter } from "next/navigation";
 
 const ContainerCart = styled.div`
     position: relative;
@@ -49,9 +52,15 @@ export function CartControl() {
         'cart-items',
         ["", ""]
     )
+
+    const router = useRouter();
     
     return (
-        <ContainerCart>
+        <ContainerCart
+            onClick={() => {
+                router.push("/carrinho")
+            }}
+        >
             <CartIcon/>
             { value.length > 0 &&
                 <CartCount>
