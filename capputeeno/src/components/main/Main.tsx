@@ -16,6 +16,10 @@ const TagMain = styled.main`
 
     width: 100vw;
     min-height: 100vh;
+
+    @media (max-width: 500px) {
+            margin-top: 56px;
+    }
 `
 
 const ContainerMain = styled.div`

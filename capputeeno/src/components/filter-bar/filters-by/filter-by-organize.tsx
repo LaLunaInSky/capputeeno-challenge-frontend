@@ -6,6 +6,20 @@ import { FilterOrganizes } from "@/types/filters/filter-organizes"
 
 const TagFilter = styled.div`
     position: relative;
+
+    @media (max-width: 500px) {
+        position: absolute;
+
+        top: 105px;
+        right: 17px;
+    }
+
+    @media (max-width: 580px) and (min-width: 501px) {
+        position: absolute;
+        
+        top: 130px;
+        right: 17px;
+    }
 `
 
 const ContainerFilter = styled.button`

@@ -10,6 +10,16 @@ const ContainerFilter = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: start;
+
+    @media (max-width: 580px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        gap: 10px;
+
+        margin-top: -10px;
+    }
 `
 
 export function FilterBar() {

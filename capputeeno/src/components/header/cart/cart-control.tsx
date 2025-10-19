@@ -2,6 +2,24 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { CartIcon } from "./cart-icon";
 import styled from "styled-components";
 
+const ContainerCart = styled.div`
+    position: relative;
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--bg-primary);
+    }
+`
+
 const CartCount = styled.span`
     width: 17px;
     height: 17px;
@@ -24,26 +42,22 @@ const CartCount = styled.span`
 
 `
 
-const Container = styled.div`
-    position: relative;
-`
-
 export function CartControl() {
     const {
         value
     } = useLocalStorage(
         'cart-items',
-        [""]
+        ["", ""]
     )
     
     return (
-        <Container>
+        <ContainerCart>
             <CartIcon/>
             { value.length > 0 &&
                 <CartCount>
                     {value.length}
                 </CartCount>
             }
-        </Container>
+        </ContainerCart>
     )
 }

@@ -2,7 +2,7 @@
 
 import { styled } from "styled-components";
 import { Saira_Stencil_One } from "next/font/google";
-import { PrimaryInputWithSearchIcon } from "./search/search-input";
+import { SearchBarInput } from "./search/search-input";
 import { CartControl } from "./cart/cart-control";
 import { useFilter } from "@/hooks/useFilter";
 
@@ -27,6 +27,10 @@ const TagHeader = styled.header`
 
     height: 80px;
     padding: 16px 8px;
+
+    @media (max-width: 500px) {
+        height: 56px;
+    }
 `
 
 const ContainerHeader = styled.div`
@@ -38,16 +42,24 @@ const ContainerHeader = styled.div`
     
     width: 1120px;
 
-    @media (max-width: 1120px) {
-        width: 95vw;
-    }
     
     > div {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 24px;
+      
+        @media (max-width: 500px) {
+            gap: 8px;
+            margin-right: 4px;
+        }
     }
+    
+    @media (max-width: 1120px) {
+        width: 95vw;
+    }
+
+    
 `
 
 const Logo = styled.a`
@@ -56,6 +68,11 @@ const Logo = styled.a`
     font-weight: 400;
     line-height: 150%;
     letter-spacing: 0%;
+
+    @media (max-width: 500px) {
+        font-size: 28px;
+        margin-left: 4px;
+    }
 `
 
 export function Header() {
@@ -73,7 +90,7 @@ export function Header() {
                     capputeeno
                 </Logo>
                 <div>
-                    <PrimaryInputWithSearchIcon
+                    <SearchBarInput
                         value={search}
                         hangleChange={setSearch}
                         placeholder="

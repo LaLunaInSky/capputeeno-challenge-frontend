@@ -8,7 +8,7 @@ const ContainerProducts = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
 
     font-family: inherit;
 

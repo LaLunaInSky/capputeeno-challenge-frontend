@@ -13,6 +13,15 @@ const FilterList = styled.ul`
     gap: 39px;
 
     list-style-type: none;
+
+    @media (max-width: 500px) {
+        gap: 24px;
+    }
+
+    @media (max-width: 645px) {
+        gap: 28px;
+        margin-bottom: 15px;
+    }
 `
 
 const FilterItem = styled.li<FilterItemProps>`
@@ -35,6 +44,10 @@ const FilterItem = styled.li<FilterItemProps>`
     &:hover {
         color: ${props => props.selected ? '' : 'var(--orange-low)'};
         border-bottom: ${props => props.selected ? '' : '1px solid var(--orange-low)'};
+    }
+
+    @media (max-width: 500px) {
+        font-size: 14px;
     }
 `
 
