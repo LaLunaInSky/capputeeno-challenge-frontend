@@ -1,7 +1,9 @@
+"use client"
+
 import styled from "styled-components"
 import { Saira } from "next/font/google";
 import { formatPrice } from "@/utils/format-price";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const saira = Saira(
   {
@@ -45,6 +47,8 @@ const TagProduct = styled.button`
 const ImageProduct = styled.img`
     width: 100%;
     height: 300px;
+
+    background-color: var(--orange-brand);
 `
 
 const InfoProduct = styled.div`
@@ -103,9 +107,14 @@ const PriceProduct = styled.p`
 export function ProductCard(
     props: ProductCardProps
 ) {
-
+    const router = useRouter();
+    
     return (
-        <TagProduct>
+        <TagProduct
+            onClick={() => {
+                router.push(`/produto?id=${props.id}`);
+            }}
+        >
             <ImageProduct 
                 src={props.image_url}
             />

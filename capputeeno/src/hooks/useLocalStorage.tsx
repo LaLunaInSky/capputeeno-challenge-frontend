@@ -1,52 +1,108 @@
-import { useState, useEffect } from "react";
+export function useLocalStorage() {
+    const storage = 'cart-items';
+    
+    let cartItems: string | null = null;
 
-export function useLocalStorage<T>(
-    item: string,
-    initialValue: T
-) {
-    const [
-        value,
-        setValue
-    ] = useState<T>(
-        initialValue
-    )
-
-    useEffect(() => {
-        if (
-            typeof window === 'undefined'
-        ) return;
-
-        const value = localStorage.getItem(
-            item
-        );
-
-        if (
-            value
-        ) setValue(
-            JSON.parse(
-                value
-            )
-        )
-
-    }, [window])
-
-    const updateLocalStorage = (
-        newValue: T
+    const formatProduct = (
+        product: undefined
     ) => {
-        setValue(
-            newValue
-        );
+        return {
+            id: product.id,
+            name: product.name,
+            description: product.description,
+            image_url: product.image_url,
+            price_in_cents: product.price_in_cents
+        }
+    }
 
-        localStorage.setItem(
-            item,
-            JSON.stringify(
-                newValue
+    const getCountItems = () => {
+        cartItems = localStorage.getItem(storage);
+
+        if (cartItems) {
+            const cartItemsArray = JSON.parse(cartItems);
+    
+            let countItems = 0;
+    
+            if (cartItemsArray != null) {
+                countItems = cartItemsArray.length;
+            }
+    
+            return countItems;
+        } else {
+            return 0;
+        }
+
+    }
+
+    const addItemToLocalStorage = (
+        product: undefined
+    ) => {    
+        cartItems = localStorage.getItem(storage);
+
+        if (
+            cartItems
+        ) { 
+            const cartItemsArray = JSON.parse(cartItems);
+            
+            let existingProductIndex = -1;
+            
+            cartItemsArray.map(
+                (element, index) => {
+                if (element.id === product.id) {
+                    existingProductIndex = index;
+                }
+            })
+            
+            if (
+                existingProductIndex > -1
+            ) {
+                cartItemsArray[
+                    existingProductIndex
+                ].quantity += 1;
+
+                cartItemsArray[
+                    existingProductIndex
+                ].total_price += cartItemsArray[
+                    existingProductIndex
+                ].price_in_cents
+            } else {
+                cartItemsArray.push(
+                    {
+                        ...formatProduct(product),
+                        quantity: 1,
+                        total_price: product.price_in_cents
+                    }
+                )
+            }
+
+            localStorage.setItem(
+                storage, 
+                JSON.stringify(
+                    cartItemsArray
+                )
             )
-        );
+
+            cartItems = localStorage.getItem(storage);
+        } else {
+            const newCart = [
+                {
+                    ...formatProduct(product),
+                    quantity: 1,
+                    total_price: product.price_in_cents
+                }
+            ]
+
+            localStorage.setItem(
+                storage, 
+                JSON.stringify(newCart)
+            )
+
+            cartItems = localStorage.getItem(storage);
+        }
     }
 
     return {
-        value,
-        updateLocalStorage
+        getCountItems,
+        addItemToLocalStorage
     }
 }

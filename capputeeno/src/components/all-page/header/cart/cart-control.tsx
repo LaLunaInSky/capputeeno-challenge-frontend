@@ -4,6 +4,7 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { CartIcon } from "./icons/cart-icon";
 import styled from "styled-components";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const ContainerCart = styled.div`
     position: relative;
@@ -47,14 +48,11 @@ const CartCount = styled.span`
 
 export function CartControl() {
     const {
-        value
-    } = useLocalStorage(
-        'cart-items',
-        ["", ""]
-    )
+        getCountItems
+    } = useLocalStorage();
 
     const router = useRouter();
-    
+
     return (
         <ContainerCart
             onClick={() => {
@@ -62,9 +60,9 @@ export function CartControl() {
             }}
         >
             <CartIcon/>
-            { value.length > 0 &&
+            { getCountItems() > 0 &&
                 <CartCount>
-                    {value.length}
+                    {getCountItems()}
                 </CartCount>
             }
         </ContainerCart>
