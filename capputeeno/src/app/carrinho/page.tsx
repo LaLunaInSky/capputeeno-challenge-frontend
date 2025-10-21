@@ -1,17 +1,17 @@
 "use client"
 
-import { useLocalStorage } from "@/hooks/useLocalStorage"
+import { CartPage } from "@/components/cart-page/cart-page"
+import styled from "styled-components"
+
+const TagCartPage = styled.div`
+    font-family: inherit;
+`
 
 export default function Page() {
-    const {
-        value
-    } = useLocalStorage();
-
-    console.log(value)
-
+    
     return (
-        <p>
-            {value ?? []}
-        </p>
+        <TagCartPage>
+            <CartPage />
+        </TagCartPage>
     )
 }

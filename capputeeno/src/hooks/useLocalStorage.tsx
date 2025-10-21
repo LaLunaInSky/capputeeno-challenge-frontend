@@ -31,7 +31,36 @@ export function useLocalStorage() {
         } else {
             return 0;
         }
+    }
 
+    const getTotalPrice = () => {
+        cartItems = localStorage.getItem(storage);
+        
+        let totalPrice = 0;
+
+        if (cartItems) {
+            let cartItemsArray = JSON.parse(cartItems);
+
+            cartItemsArray.map(
+                (item) => {
+                    totalPrice += item.total_price
+                }
+            )
+        }
+
+        return totalPrice;
+    }
+
+    const getItems = () => {
+        cartItems = localStorage.getItem(storage);
+
+        if (cartItems) {
+            const cartItemsArray = JSON.parse(cartItems);
+            
+            return cartItemsArray;
+        } else {
+            return [];
+        }
     }
 
     const addItemToLocalStorage = (
@@ -101,8 +130,65 @@ export function useLocalStorage() {
         }
     }
 
+    const deleteItem = (
+        id: string
+    ) => {
+        cartItems = localStorage.getItem(storage);
+
+        if (cartItems) {
+            const cartItemsArray = JSON.parse(cartItems);
+
+            let indexItem = -1;
+
+            cartItemsArray.map(
+                (item, index) => {
+                    if (item.id === id) {
+                        indexItem = index;
+                    }
+                }
+            )
+
+            cartItemsArray.splice(indexItem, 1)
+
+            localStorage.setItem(
+                storage,
+                JSON.stringify(cartItemsArray)
+            )
+        }
+    }
+
+    const updateTheQuantity = (
+        newValue: Int16Array,
+        id: string
+    ) => {
+        cartItems = localStorage.getItem(storage);
+
+        if (cartItems) {
+            const cartItemsArray = JSON.parse(cartItems);
+
+            cartItemsArray.map(
+                (item) => {
+                    if (item.id === id) {
+                        item.quantity = newValue;
+
+                        item.total_price = item.price_in_cents * newValue
+                    }
+                }
+            )
+
+            localStorage.setItem(
+                storage,
+                JSON.stringify(cartItemsArray)
+            )
+        }
+    }
+
     return {
         getCountItems,
-        addItemToLocalStorage
+        getTotalPrice,
+        getItems,
+        addItemToLocalStorage,
+        deleteItem,
+        updateTheQuantity
     }
 }
