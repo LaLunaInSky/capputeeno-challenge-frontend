@@ -1,64 +1,69 @@
-![image](https://user-images.githubusercontent.com/40845824/121069742-3accdb00-c7a4-11eb-87d0-3dc47e433762.png)
 
+## Capputeeno - Challenge Frontend
+Bem-vindo(a)! Este é um repositório que contém a minha solução para o [desafio frontend](https://github.com/Rocketseat/frontend-challenge) proposto pela [Rocketseat](https://github.com/Rocketseat).
 
-# 🚀 Front end challenge
+![imagem](./.github/capputeeno-image.png)
 
-Bem-vindo(a). Este é o desafio Front end!
+## 🧠 Sobre
+O objetivo deste projeto foi aperfeiçoar e treinar minhas habilidades em Frontend com Typescript e Next.js, com o suporte dos vídeos da [Fernanda Kipper](https://github.com/Fernanda-Kipper):
+ - [Vídeo parte 1](https://youtu.be/fF-UWgeiELc)
+ - [Vídeo parte 2](https://youtu.be/I_thj22FsrE)
+ - [Repositório](https://github.com/Fernanda-Kipper/challenge-frontend/)
 
-O objetivo deste desafio é avaliar suas habilidades de programação.
-Quando sua solução estiver pronta, basta responder o e-mail que recebeu com o link do seu repo aqui no Github!
-Em seguida, enviaremos o feedback e as instruções dos próximos passos!
+O desafio foi implementar um e-commerce para venda de canecas e camisetas com as seguintes funcionalidades:
+ - [x] Catálogo de produtos com paginação
+ - [x] Filtragem produtos por categoria
+ - [x] Busca por nome do produto
+ - [x] Adicionar e remover produtos do carrinho
+ - [x] Finalizar compra
 
-Caso tenha alguma dúvida, nós estamos disponíveis no email *recrutamento@rocketseat.com.br*
-Bom desafio!
+Para acessar o projeto online é só [clicar aqui!](https://capputeeno.lalunainsky.com/)
 
-> ⚠️ **É importante que o seu repo esteja público, caso contrário não iremos conseguir avaliar sua resposta**
+## 📋 Requerimento do Desafio
+ - Siga o [protótipo](https://github.com/Rocketseat/frontend-challenge)
+ - Usar o Next.js e o Typescript
+ - Criar componentes com o styled-components
+ - Consumir a API GraphQL fornecida
 
-# 🧠 Contexto
+## 🖥️ Instalação
+1. Clone este repositório
+```bash
+git clone https://github.com/lalunainsky/capputeeno-challenge-frontend.git
+```
 
-![Protótipo](https://storage.googleapis.com/xesque-dev/challenge-images/prototipo.png?42)
+2. Vá até a pasta do projeto
+```bash
+cd capputeeno-challenge-frontend
+```
 
-O desafio será implementar um e-commerce para venda de canecas e camisetas que deverá ter as seguintes funcionalidades:
-- [x] Catálogo de produtos com paginação
-- [x] Filtragem produtos por categoria
-- [x] Busca por nome do produto
-- [x] Adicionar e remover produtos do carrinho
-- [x] Finalizar compra
+### Frontend
+3. Entre na pasta do Frontend
+```bash
+cd capputeeno
+```
 
-## 📋 Instruções
+4. Instale as dependências
+```bash
+npm install
+```
 
-Chegou a hora de colocar a mão na massa!
+5. Rode o Frontend
+```bash
+npm run dev
+```
 
-- Siga [esse protótipo](https://www.figma.com/file/rET9F2CeUEJdiVN7JRu993/E-commerce---capputeeno?node-id=680%3A6449)
-- Utilize Next.js e Typescript
-- Faça a estilização com styled-components
-- Utilize o local storage para gerenciar o carrinho
-- Por favor, inclua no README as instruções de instalação do projeto
-- Sinta-se livre para incluir quaisquer observações
-- Consuma nossa **API GraphQL** rodando o comando `yarn start` na pasta `api`
+### Rodar a API Fornecida
+3. Entre na pasta da API
+```bash
+cd api
+```
 
-## ✔️ Critérios de Avaliação
+4. Instale as dependências
+```bash
+npm install
+```
 
-Além dos requisitos levantados acima, iremos olhar para os seguintes critérios durante a correção do desafio:
-
-- Gerenciamento de estado
-- Componentização
-- Responsividade
-- Preocupação com usabilidade
-- Preocupação com acessibilidade
-- Testes e2e
-- Padrões de código
-- Padrão de commits (_Conventional_)
-
-## 😎 Seria legal
-- Fazer deploy na vercel ou em outro local de sua preferência e disponibilizar um link de visualização, se necessário utilize esse servidor para a API GraphQL:  https://rocketseat-frontend-challenge.herokuapp.com/
-- Testes unitários
-- Utilização de cache do Next.js
-
----
-
-_O desafio acima foi cuidadosamente construído para propósitos de avaliação apenas. Já possuimos uma funcionalidade similar na nossa plataforma._
-
-Made with 💜 at Rocketseat
-
-
+5. Rode a API
+```bash
+npm start
+```

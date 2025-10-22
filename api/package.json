@@ -5,7 +5,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "json-graphql-server db.js --port 3333"
+    "start": "json-graphql-server db.js --port 3333 "
   },
   "dependencies": {
     "@faker-js/faker": "^10.1.0",

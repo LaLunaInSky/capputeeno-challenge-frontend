@@ -15,10 +15,10 @@ const saira = Saira(
 )
 
 interface ProductCardProps {
+    id: string
     image_url: string,
     name: string,
     price_in_cents: number,
-    id: string
 }
 
 const TagProduct = styled.button`
@@ -126,11 +126,9 @@ export function ProductCard(
                 </NameProduct>
                 <DividerInfosProduct />
                 <PriceProduct>
-                    {`R$ ${
-                        formatPrice(
-                            props.price_in_cents
-                        )
-                    }`}
+                    {formatPrice(
+                        props.price_in_cents
+                    )}
                 </PriceProduct>
             </InfoProduct>
         </TagProduct>

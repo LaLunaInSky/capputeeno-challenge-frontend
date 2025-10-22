@@ -1,4 +1,4 @@
-import { useLocalStorage } from "@/hooks/useLocalStorage"
+import { useLocalStorage } from "@/hooks/local-storage/useLocalStorage"
 import { useRouter } from "next/navigation";
 import styled from "styled-components"
 

@@ -1,4 +1,4 @@
-import { useLocalStorage } from "@/hooks/useLocalStorage"
+import { useLocalStorage } from "@/hooks/local-storage/useLocalStorage"
 import { formatPrice } from "@/utils/format-price"
 import styled from "styled-components"
 
@@ -49,11 +49,9 @@ export function SubTotalAndDeliveryInfo() {
                     Subtotal de produtos
                 </h2>
                 <p>
-                    {`R$ ${
-                        formatPrice(
+                    {formatPrice(
                             totalPrice
-                        )
-                    }`}
+                    )}
                 </p>
             </TagItem>
             <TagItem>
@@ -61,11 +59,9 @@ export function SubTotalAndDeliveryInfo() {
                     Entrega
                 </h2>
                 <p>
-                    {`R$ ${
-                        formatPrice(
+                    {formatPrice(
                             4000
-                        )
-                    }`}
+                    )}
                 </p>
             </TagItem>
         </ContainerSubtotalAndDeliveryInfo>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { BackInput } from "../product-page/back-input/back-input";
 import { formatPrice } from "@/utils/format-price";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { useLocalStorage } from "@/hooks/local-storage/useLocalStorage";
 import { CartProducts } from "./cart-products/cart-products";
 import { CartOrder } from "./cart-order/cart-order";
 
@@ -96,7 +96,7 @@ export function CartPage() {
                 <TagTotalProductsAndPrice>
                     Total ({`${totalProducts} produto${totalProducts != 1 ? "s" : ""}`})
                     <span>
-                        {`R$ ${formatPrice(totalPrice)}`}
+                        {formatPrice(totalPrice)}
                     </span>
                 </TagTotalProductsAndPrice>
                 <CartProducts />

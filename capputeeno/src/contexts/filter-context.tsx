@@ -1,7 +1,7 @@
 "use client"
 
-import { FilterOrganizes } from "@/types/filters/filter-organizes";
-import { FilterTypes } from "@/types/filters/filter-types";
+import { FilterOrganizes } from "@/utils/filters/filter-organizes";
+import { FilterTypes } from "@/utils/filters/filter-types";
 import { createContext, ReactNode, useState } from "react";
 
 export const FilterContext = createContext({

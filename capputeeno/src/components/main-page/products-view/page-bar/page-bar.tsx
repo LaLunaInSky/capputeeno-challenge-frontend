@@ -1,8 +1,11 @@
 import styled from "styled-components"
-import { ReactNode } from "react"
+import { ReactNode, useDeferredValue } from "react"
 import { ContainerPageBar } from "./page-container/page-container"
-import { useProducts } from "@/hooks/main-page/useProducts"
 import { NothingFound } from "./nothing-found"
+import { useQuery } from "@tanstack/react-query"
+import { GET_FETCHER_PRODUCTS } from "@/hooks/querrys/fetchers/get-fetcher-products"
+import { useFilter } from "@/utils/filters/useFilter"
+import { GET_QUERY_ALL_PRODUCTS_TO_MAIN_PAGE_WITHOUT_PAGE } from "@/hooks/querrys/get-query-all-products-to-main-without-page"
 
 interface PageBarProps {
     children: ReactNode
@@ -26,24 +29,61 @@ export function PageBar({
     children
 } : PageBarProps ) {
     const {
-        data
-    } = useProducts();
+        type,
+        organize,
+        page,
+        search,
+        numberOfPages,
+        setNumberOfPages,
+        setPage
+    } = useFilter();
 
-    return (
-        <TagPageBar>
-            {data?.length > 0 && 
+    const searchDeferred = useDeferredValue(
+        search
+    ).toLowerCase();
+
+    const {
+        data
+    } = useQuery({
+        queryFn: () => GET_FETCHER_PRODUCTS(
+            GET_QUERY_ALL_PRODUCTS_TO_MAIN_PAGE_WITHOUT_PAGE(
+                type,
+                organize
+            )
+        ),
+        queryKey: ['products', type, organize, searchDeferred]
+    })
+
+    let products = data?.data?.data?.allProducts ?? [];
+
+    products = products?.filter(
+        product => product.name.toLowerCase().includes(searchDeferred)
+    );
+
+    const quantityOfProducts = products?.length;
+
+    if (quantityOfProducts <= 0) {
+        setNumberOfPages(1)
+    } else {
+        setNumberOfPages(
+            Math.ceil(quantityOfProducts/12)
+        )
+
+        if (page > numberOfPages) {
+            setPage(numberOfPages - 1);
+        }
+    }
+
+    if (quantityOfProducts <= 0) {
+        return <NothingFound />
+    } else {
+        return (
+            <TagPageBar> 
                 <ContainerPageBar />
-            }
-            {children}
-            {data?.length <= 0 &&
-                <NothingFound />
-            }
-            {data === undefined &&
-                <NothingFound />
-            }
-            {data?.length > 0 && 
+                {children}
                 <ContainerPageBar />
-            }
-        </TagPageBar>
-    )
+            </TagPageBar>
+        )
+    }
+
 }

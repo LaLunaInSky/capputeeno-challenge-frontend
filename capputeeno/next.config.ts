@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   compiler: {
     styledComponents: true
-  }
+  }, output: 'export'
 };
 
 export default nextConfig;

@@ -1,0 +1,4 @@
+1:"$Sreact.fragment"
+2:I[8727,["/_next/static/chunks/b6376d2673336d6b.js","/_next/static/chunks/b80a36418edb73b6.js","/_next/static/chunks/d4963793bfe7f82f.js"],"default"]
+3:I[75807,["/_next/static/chunks/b6376d2673336d6b.js","/_next/static/chunks/b80a36418edb73b6.js","/_next/static/chunks/d4963793bfe7f82f.js"],"default"]
+0:{"buildId":"MmU2OBtvL92mrmx_Kne-p","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}

@@ -4,6 +4,8 @@ import { Header } from "@/components/all-page/header/header";
 import { Main } from "@/components/all-page/main/Main";
 import { FilterContextProvider } from "@/contexts/filter-context";
 import { Saira } from "next/font/google";
+import { ClientWrapper } from "@/contexts/client-wrapper";
+import { Suspense } from "react";
 
 const saira = Saira(
   {
@@ -28,10 +30,14 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={saira.className}>
         <FilterContextProvider>
-          <Header />
-          <Main>  
-            {children}
-          </Main>
+          <ClientWrapper>
+            <Header />
+            <Main>  
+              <Suspense>
+                {children}
+              </Suspense>
+            </Main>
+          </ClientWrapper>
         </FilterContextProvider>
       </body>
     </html>

@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 import { Saira_Stencil_One } from "next/font/google";
 import { SearchBarInput } from "./search/search-input";
 import { CartControl } from "./cart/cart-control";
-import { useFilter } from "@/hooks/main-page/useFilter";
+import { useFilter } from "@/utils/filters/useFilter";
 import { useRouter } from "next/navigation";
 
 const sairaStencilOne = Saira_Stencil_One(

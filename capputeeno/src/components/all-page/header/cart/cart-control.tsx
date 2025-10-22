@@ -1,6 +1,6 @@
 "use client"
 
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { useLocalStorage } from "@/hooks/local-storage/useLocalStorage";
 import { CartIcon } from "./icons/cart-icon";
 import styled from "styled-components";
 import { useRouter } from "next/navigation";

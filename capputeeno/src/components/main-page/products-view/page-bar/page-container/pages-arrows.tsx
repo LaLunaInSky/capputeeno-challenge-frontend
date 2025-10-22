@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { ArrowLeftIcon } from "./icons/arrow-left-icon"
 import { ArrowRightIcon } from "./icons/arrow-right-icon"
-import { useFilter } from "@/hooks/main-page/useFilter"
+import { useFilter } from "@/utils/filters/useFilter"
 
 interface PageArrowProps {
     disabled: boolean

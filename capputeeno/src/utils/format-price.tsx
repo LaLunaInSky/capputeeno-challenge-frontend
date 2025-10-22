@@ -7,5 +7,5 @@ export const formatPrice = (
         minimumFractionDigits: 2
     });
 
-    return formattedPrice;
+    return `R$ ${formattedPrice}`;
 }

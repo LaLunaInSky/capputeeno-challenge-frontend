@@ -37,7 +37,6 @@ interface MainProps {
 export function Main({
     children
 } : MainProps) {
-
     return (
         <TagMain>
             <ContainerMain>

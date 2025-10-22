@@ -1,5 +1,5 @@
-import { useFilter } from "@/hooks/main-page/useFilter"
-import { FilterTypes } from "@/types/filters/filter-types"
+import { useFilter } from "@/utils/filters/useFilter"
+import { FilterTypes } from "@/utils/filters/filter-types"
 import styled from "styled-components"
 
 interface FilterItemProps {
@@ -81,11 +81,11 @@ export function FilterByType() {
             </FilterItem>
             <FilterItem
                 selected={
-                    type === FilterTypes.SHIRT ? true : false
+                    type === FilterTypes.TSHIRTS ? true : false
                 }
                 onClick={() => {
                     handleChangeType(
-                        FilterTypes.SHIRT
+                        FilterTypes.TSHIRTS
                     )
                 }}
             >
@@ -93,11 +93,11 @@ export function FilterByType() {
             </FilterItem>
             <FilterItem
                 selected={
-                    type === FilterTypes.MUG ? true : false
+                    type === FilterTypes.MUGS ? true : false
                 }
                 onClick={() => {
                     handleChangeType(
-                        FilterTypes.MUG
+                        FilterTypes.MUGS
                     )
                 }}
             >

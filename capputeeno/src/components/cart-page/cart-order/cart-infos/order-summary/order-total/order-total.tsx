@@ -1,4 +1,4 @@
-import { useLocalStorage } from "@/hooks/useLocalStorage"
+import { useLocalStorage } from "@/hooks/local-storage/useLocalStorage"
 import { formatPrice } from "@/utils/format-price"
 import styled from "styled-components"
 
@@ -37,11 +37,9 @@ export function OrderTotal() {
                 Total
             </h2>
             <p>
-                {`R$ ${
-                    formatPrice(
+                {formatPrice(
                         totalOrder
-                    )
-                }`}
+                )}
             </p>
         </ContainerOrderTotal>
     )
