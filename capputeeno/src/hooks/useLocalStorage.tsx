@@ -183,12 +183,17 @@ export function useLocalStorage() {
         }
     }
 
+    const completeThePurchase = () => {
+        localStorage.removeItem(storage)
+    }
+
     return {
         getCountItems,
         getTotalPrice,
         getItems,
         addItemToLocalStorage,
         deleteItem,
-        updateTheQuantity
+        updateTheQuantity,
+        completeThePurchase
     }
 }

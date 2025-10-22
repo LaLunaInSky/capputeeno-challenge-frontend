@@ -23,7 +23,7 @@ O desafio será implementar um e-commerce para venda de canecas e camisetas que 
 - [x] Filtragem produtos por categoria
 - [x] Busca por nome do produto
 - [x] Adicionar e remover produtos do carrinho
-- [ ] Finalizar compra
+- [x] Finalizar compra
 
 ## 📋 Instruções
 
@@ -60,3 +60,5 @@ Além dos requisitos levantados acima, iremos olhar para os seguintes critérios
 _O desafio acima foi cuidadosamente construído para propósitos de avaliação apenas. Já possuimos uma funcionalidade similar na nossa plataforma._
 
 Made with 💜 at Rocketseat
+
+

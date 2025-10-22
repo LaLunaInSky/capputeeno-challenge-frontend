@@ -1,3 +1,5 @@
+import { useLocalStorage } from "@/hooks/useLocalStorage"
+import { useRouter } from "next/navigation";
 import styled from "styled-components"
 
 const ButtonCompleteThePurchase = styled.button`
@@ -24,8 +26,22 @@ const ButtonCompleteThePurchase = styled.button`
 `
 
 export function CompleteThePurchaseInput() {
+    const router = useRouter();
+    
+    const {
+        completeThePurchase
+    } = useLocalStorage();
+
+    const handleChanged = () => {
+        completeThePurchase();
+
+        router.replace("/")
+    }
+
     return (
-        <ButtonCompleteThePurchase>
+        <ButtonCompleteThePurchase
+            onClick={handleChanged}
+        >
             finalizar a compra
         </ButtonCompleteThePurchase>
     )

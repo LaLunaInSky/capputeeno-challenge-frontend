@@ -3,6 +3,7 @@
 import styled from "styled-components"
 import { CartIconWhite } from "./icons/cart-icon-white"
 import { useLocalStorage } from "@/hooks/useLocalStorage"
+import { useRouter } from "next/navigation"
 
 interface AddToCartProps {
     product: undefined,
@@ -54,17 +55,23 @@ const TagInfoInput = styled.p`
 export function AddToCart(
     props: AddToCartProps
 ) {
+    const router = useRouter();
+
     const {
         addItemToLocalStorage
     } = useLocalStorage();
 
+    const handleClick = () => {
+        addItemToLocalStorage(
+            props.product
+        );
+
+        router.refresh()
+    }
+
     return (
         <AddToCartInput
-            onClick={() => {
-                addItemToLocalStorage(
-                    props.product
-                )
-            }}
+            onClick={handleClick}
         >
             <CartIconWhite />
             <TagInfoInput>

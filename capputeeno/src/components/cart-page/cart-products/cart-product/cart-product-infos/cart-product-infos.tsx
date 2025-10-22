@@ -3,6 +3,7 @@ import { TrashIcon } from "./icons/trash-icon"
 import { formatPrice } from "@/utils/format-price"
 import { QuantityProductInput } from "./quantity-product-input/quantity-product-input"
 import { useLocalStorage } from "@/hooks/useLocalStorage"
+import { useRouter } from "next/navigation"
 
 interface CartProductInfosProps {
     product: undefined
@@ -108,9 +109,19 @@ const DeleteInput = styled.button`
 export function CartProductInfos(
     props: CartProductInfosProps
 ) {
+    const router = useRouter();
+
     const {
         deleteItem
     } = useLocalStorage();
+
+    const handleChanged = () => {
+        deleteItem(
+            props?.product?.id
+        );
+
+        router.refresh();
+    }
 
     return (
         <ContainerProdctInfos>
@@ -119,9 +130,7 @@ export function CartProductInfos(
                     {props?.product?.name}
                 </h1>
                 <DeleteInput
-                    onClick={() => {
-                        deleteItem(props?.product?.id)
-                    }}
+                    onClick={handleChanged}
                 >
                     <TrashIcon />
                 </DeleteInput>

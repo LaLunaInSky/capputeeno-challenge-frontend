@@ -1,4 +1,5 @@
 import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styled from "styled-components"
 
@@ -33,6 +34,8 @@ const TagQuantityProductInput = styled.select`
 export function QuantityProductInput(
 props: QuantityProductInputProps
 ) {
+    const router = useRouter();
+
     const {
         updateTheQuantity
     } = useLocalStorage();
@@ -69,6 +72,8 @@ props: QuantityProductInputProps
             newValue,
             props?.id
         );
+
+        router.refresh();
     }
 
     return (

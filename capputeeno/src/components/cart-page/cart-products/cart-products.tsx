@@ -3,7 +3,12 @@ import styled from "styled-components"
 import { CartProduct } from "./cart-product/cart-product";
 
 const TagNotFoundProducts = styled.p`
+    margin-top: 15px;
+
+    font-weight: 600;
     text-transform: uppercase;
+
+    color: var(--orange-brand);
 `
 
 const ContainerCartProducts = styled.div`
