@@ -1,9 +1,11 @@
 "use client"
 
-import { NotFoundPage } from "@/components/product-page/not-found-page/not-found-page";
+import TemplateNotFound from "./components/templates/not_found.template";
 
-export default function NotFound() {
+const NotFound = () => {
     return (
-        <NotFoundPage />
-    )
-}
+        <TemplateNotFound />
+    );
+};
+
+export default NotFound;
